@@ -1,0 +1,11 @@
+version: "3"
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "5002:80"
+    volumes:
+      - ./backend:/usr/src/lab/backend
