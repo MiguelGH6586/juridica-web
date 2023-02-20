@@ -1,1 +1,3 @@
-# Hola desde mi rama front
+# This is a guide for frontend config
+
+
