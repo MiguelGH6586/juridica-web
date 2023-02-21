@@ -1,8 +1,13 @@
 from fastapi import FastAPI
-import uvicorn
+from routes.client import client
+from docs import tags_metadata
 
-app = FastAPI()
+app = FastAPI(
+    title="API Project Web",
+    description="This is a API to do tests",
+    version="0.0.1",
+    openapi_tags=tags_metadata
+)
 
-@app.get('/')
-def read_root():
-    return {"welcome": "building project"}
+app.include_router(client)
+
