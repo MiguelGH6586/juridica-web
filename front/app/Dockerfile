@@ -18,4 +18,4 @@ COPY . .
 RUN npm run build
 
 
-CMD ["npm", "start"]
+CMD ["npm", "start", "--host", "0.0.0.0", "--port", "3000", "--disableHostCheck", "true"]

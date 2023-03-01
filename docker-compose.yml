@@ -43,6 +43,8 @@ services:
     container_name: frontapp_c
     ports:
       - '2000:3000'
+    environment:
+      - CHOKIDAR_USE_POLLING=true
     restart: always
     networks:
       - default

@@ -7,14 +7,14 @@ function App() {
   const [mobileNumber, setMobileNumber] = useState('');
   const [message, setMessage] = useState('');
 
-  console.log('la rama funciona....');
+  // console.log('la rama funciona....');
 
   // probar volumens
 
   let handleSubmit = async e => {
     e.preventDefault();
     try {
-      let res = await fetch('backend_web:8080/clients', {
+      let res = await fetch('http://backend_web:80/clients', {
         method: 'POST',
         body: JSON.stringify({
           cc: '',
@@ -25,6 +25,7 @@ function App() {
         }),
       });
       let resJson = await res.json();
+      console.log(resJson.status);
       if (resJson.status === 200) {
         setName('');
         setEmail('');
