@@ -9,19 +9,23 @@ function App() {
 
   console.log('la rama funciona....');
 
+  // probar volumens
+
   let handleSubmit = async e => {
     e.preventDefault();
     try {
-      let res = await fetch('https://httpbin.org/post', {
+      let res = await fetch('backend_web:8080/clients', {
         method: 'POST',
         body: JSON.stringify({
-          name: name,
+          cc: '',
+          first_name: name,
+          last_name: '',
+          cellphone: mobileNumber,
           email: email,
-          mobileNumber: mobileNumber,
         }),
       });
       let resJson = await res.json();
-      if (res.status === 200) {
+      if (resJson.status === 200) {
         setName('');
         setEmail('');
         setMessage('User created successfully');
@@ -35,7 +39,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World 🌎</h1>;
+      <h1>Hello World 🌎</h1>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
