@@ -15,14 +15,18 @@ function App() {
     e.preventDefault();
     try {
       let res = await fetch('http://backend_web:80/clients', {
-        method: 'POST',
-        body: JSON.stringify({
-          cc: '',
+        method: 'GET',
+        headers:{
+          'accept': 'application/json',
+          //'Content-Type': 'application/json'
+        },
+        /*body: JSON.stringify({
+          cc: '2222',
           first_name: name,
-          last_name: '',
+          last_name: '2222',
           cellphone: mobileNumber,
           email: email,
-        }),
+        }),*/
       });
       let resJson = await res.json();
       console.log(resJson.status);
