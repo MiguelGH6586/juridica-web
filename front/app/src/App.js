@@ -14,22 +14,21 @@ function App() {
   let handleSubmit = async e => {
     e.preventDefault();
     try {
-      let res = await fetch('http://backend_web:80/clients', {
-        method: 'GET',
+      let res = await fetch('/clients', {
+        method: 'POST',
         headers:{
           'accept': 'application/json',
-          //'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         },
-        /*body: JSON.stringify({
+        body: JSON.stringify({
           cc: '2222',
           first_name: name,
           last_name: '2222',
           cellphone: mobileNumber,
           email: email,
-        }),*/
+        }),
       });
       let resJson = await res.json();
-      console.log(resJson.status);
       if (resJson.status === 200) {
         setName('');
         setEmail('');

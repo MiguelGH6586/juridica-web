@@ -38,4 +38,7 @@ async def delete_client(id: str):
     clientEntity(database.find_one_and_delete({"_id": ObjectId(id)}))
     return Response(status_code=HTTP_204_NO_CONTENT)
 
-# esto es un cambio pendej
+# route of test
+@client.get('/test', tags=["clients"])
+async def test_api() -> dict:
+    return {'message': 'success call'}
