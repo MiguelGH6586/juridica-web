@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   database:
     env_file:
@@ -14,7 +14,7 @@ services:
       - ./db/data:/data/db
       - ./db/data/log:/var/log/mongodb/
     ports:
-      - "27017:${MONGO_PORT}"
+      - '27017:${MONGO_PORT}'
     #command: mongod --auth --port 27017
     networks:
       - default
@@ -22,13 +22,13 @@ services:
   backend:
     env_file:
       - .env
-    build: 
+    build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: ${WEB_HOST}
     hostname: ${WEB_HOST}
     ports:
-      - "8080:${WEB_PORT}"
+      - '8080:${WEB_PORT}'
     links:
       - database
     depends_on:
@@ -37,3 +37,25 @@ services:
       - ./backend:/usr/src/lab/backend
     networks:
       - default
+
+  frontend:
+    build:
+      context: ./front/app
+      dockerfile: Dockerfile
+    
+    container_name: frontapp_c
+    ports:
+      - '3000:3000'
+    #environment:
+    #  - CHOKIDAR_USEPOLLING=true
+      #- NODE_ENV=development
+    #restart: always
+    networks:
+      - default
+    depends_on:
+      - backend
+    volumes:
+      - './front/app:/usr/src/lab/front/app'
+      - '/usr/src/lab/front/app/node_modules'
+    stdin_open: true
+    tty: true
