@@ -114,7 +114,11 @@ const UserDataFrom = () => {
               </p>
             </div>
             {/* Here you can put your form */}
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              className="contact-form"
+              method="post"
+              onSubmit={handleSubmit}
+            >
               {/* First Name */}
               <div className="input-wrap">
                 <input
@@ -125,7 +129,7 @@ const UserDataFrom = () => {
                   required
                 />
                 <label htmlFor="">First Name</label>
-                <FontAwesomeIcon icon={faAddressCard} />
+                <FontAwesomeIcon className="icon" icon={faAddressCard} />
               </div>
               {/* Secon Name */}
               <div className="input-wrap">
@@ -137,7 +141,7 @@ const UserDataFrom = () => {
                   required
                 />
                 <label htmlFor="">Second Name</label>
-                <FontAwesomeIcon icon={faAddressCard} />
+                <FontAwesomeIcon className="icon" icon={faAddressCard} />
               </div>
               {/* cedula */}
               <div className="input-wrap">
@@ -149,7 +153,7 @@ const UserDataFrom = () => {
                   required
                 />
                 <label htmlFor="">Cedula</label>
-                <FontAwesomeIcon icon={faIdCard} />
+                <FontAwesomeIcon className="icon" icon={faIdCard} />
               </div>
               {/* Email */}
               <div className="input-wrap">
@@ -161,10 +165,10 @@ const UserDataFrom = () => {
                   required
                 />
                 <label htmlFor="">Email</label>
-                <FontAwesomeIcon icon={faEnvelope} />
+                <FontAwesomeIcon className="icon" icon={faEnvelope} />
               </div>
               {/* Numero de celular */}
-              <div className="input-wrap">
+              <div className="input-wrap w-100">
                 <input
                   name="Numero celualar"
                   autoComplete="off"
@@ -173,7 +177,7 @@ const UserDataFrom = () => {
                   required
                 />
                 <label htmlFor="">Numero celualar:</label>
-                <FontAwesomeIcon icon={faPhoneFlip} />
+                <FontAwesomeIcon className="icon" icon={faPhoneFlip} />
               </div>
             </form>
           </div>

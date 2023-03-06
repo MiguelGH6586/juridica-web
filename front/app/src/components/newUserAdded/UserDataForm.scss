@@ -3,7 +3,7 @@
 .form {
   width: 100%;
   overflow: hidden;
-  background-color: greenyellow;
+  // background-color: greenyellow;
 }
 
 .form .container {
@@ -23,7 +23,7 @@
   width: 100%;
   max-width: 128rem;
   margin: 0 auto;
-  background-color: khaki;
+  // background-color: khaki;
   padding: 12rem 2.4rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -48,7 +48,7 @@
 }
 
 .text {
-  color: #9ca7b6;
+  color: variables.$lightTextColor;
   line-height: 1.1;
   font-size: 1.6rem;
 }
@@ -60,9 +60,78 @@
 
 .text a:hover {
   color: variables.$mainColorHover;
-  
 }
 
-// .right {
-//   background-color: orange;
-// }
+.form-wrapper {
+  max-width: 51rem;
+}
+
+.contact-form {
+  display: grid;
+  margin-top: 4rem;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3.2rem;
+  row-gap: 1.6rem;
+}
+
+.input-wrap.w-100 {
+  grid-column: span 2;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.contact-input {
+  width: 100%;
+  background-color: hsl(variables.$main-hue, 50%, 50%, 6.5%);
+  // background-color: red;
+  padding: 2.4rem 2.2rem calc(1.2rem - 2px) 2.2rem;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  border-radius: 3.2rem;
+  color: variables.$textColor;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 0px hsla(variables.$main-hue, 92%, 54%, 0.169);
+  transition: 0.3s;
+}
+
+.contact-input:hover {
+  background-color: variables.$inoutbgHover;
+}
+
+.input-wrap label {
+  position: absolute;
+  top: 50%;
+  left: calc(2.2rem + 2px);
+  transform: translateY(-50%);
+  color: variables.$lightTextColor;
+  pointer-events: none;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  right: calc(2.2rem + 2px);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: variables.$inputText;
+  font-size: 2rem;
+}
+
+//#TODO: esta clase se aplicara cuando se ponga por js la clase focus
+.input-wrap.focus .contact-input {
+  background-color: variables.$bgColor;
+  border: 2px solid variables.$lightMainColor;
+  box-shadow: 0 0 0 5px hsla(variables.$main-hue, 91%, 55%, 0.11);
+}
+
+.input-wrap.focus label {
+  color: variables.$lightMainColor;
+}
+.input-wrap.focus icon {
+  color: variables.$lightMainColor;
+}
