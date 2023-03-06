@@ -1,0 +1,68 @@
+@use '../../../sass/abstracs/variables';
+
+.form {
+  width: 100%;
+  overflow: hidden;
+  background-color: greenyellow;
+}
+
+.form .container {
+  height: 100vh;
+  min-height: 70rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.form .container > div {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.left {
+  width: 100%;
+  max-width: 128rem;
+  margin: 0 auto;
+  background-color: khaki;
+  padding: 12rem 2.4rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  //position
+  position: relative;
+  z-index: 3;
+}
+
+.contact-heading h1 {
+  font-weight: 600;
+  color: variables.$textColor;
+  font-size: 5.6rem;
+  line-height: 0.9;
+  white-space: nowrap;
+  margin-bottom: 2rem;
+}
+
+.contact-heading h1 span {
+  color: variables.$mainColor;
+}
+
+.text {
+  color: #9ca7b6;
+  line-height: 1.1;
+  font-size: 1.6rem;
+}
+
+.text a {
+  color: variables.$mainColor;
+  transition: 0.3s;
+}
+
+.text a:hover {
+  color: variables.$mainColorHover;
+  
+}
+
+// .right {
+//   background-color: orange;
+// }

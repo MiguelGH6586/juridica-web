@@ -1,0 +1,88 @@
+@use '../../../sass/abstracs/variables';
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+header .container {
+  max-width: 128rem;
+  background-color: lightblue;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  height: 10.4rem;
+
+  //position
+  display: flex;
+  align-items: flex-end;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.logo .images {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.logo img {
+  height: 5.6rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin-right: 0.8rem;
+}
+
+.logo img.logo-forDarck {
+  opacity: 0;
+}
+
+.logo h2 {
+  color: variables.$textColor;
+  font-size: 2.56rem;
+  margin-top: 0.32rem;
+}
+
+.logo h2 span {
+  color: variables.$mainColor;
+}
+
+/////////////////////////////////////////////////
+/// nav list////////////////////
+///
+.nav-link {
+  margin-left: 8.8rem;
+  padding: 0 1.6rem;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: variables.$navColor;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: variables.$mainColor;
+}
+
+.nav-link.theme-toggle {
+  cursor: pointer;
+}
+
+.theme-toggle .fa-moon {
+  display: none;
+}
+
+.theme-toggle .fa-sun {
+  display: inline;
+}
