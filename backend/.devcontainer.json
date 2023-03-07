@@ -3,6 +3,6 @@
     "dockerComposeFile": ["../docker-compose.yml"],
     "service": "backend",
     "shutdownAction": "none",
-    "workspaceFolder": "/usr/src/lab/backend",
+    "workspaceFolder": "/usr/src/backend",
     "extensions": ["ms-python.python", "mongodb.mongodb-vscode", "pkief.material-icon-theme"]
 }
