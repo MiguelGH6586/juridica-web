@@ -40,7 +40,7 @@ const UserDataFrom = () => {
     // setEnterAmount(event.target.value);
     setUserInput({
       ...userInput,
-      nacionalId: event.target.value,
+      name: event.target.value,
     });
   };
   let seconNameChangeHandlre = event => {
@@ -48,7 +48,7 @@ const UserDataFrom = () => {
     // setEnterAmount(event.target.value);
     setUserInput({
       ...userInput,
-      nacionalId: event.target.value,
+      secondName: event.target.value,
     });
   };
   let emailAdressChangeHandlre = event => {
@@ -56,7 +56,7 @@ const UserDataFrom = () => {
     // setEnterAmount(event.target.value);
     setUserInput({
       ...userInput,
-      nacionalId: event.target.value,
+      emailAdress: event.target.value,
     });
   };
   let mobileNumberChangeHandlre = event => {
@@ -64,7 +64,7 @@ const UserDataFrom = () => {
     // setEnterAmount(event.target.value);
     setUserInput({
       ...userInput,
-      nacionalId: event.target.value,
+      mobileNumber: event.target.value,
     });
   };
 
@@ -72,8 +72,11 @@ const UserDataFrom = () => {
   let handleSubmit = async event => {
     event.preventDefault();
     try {
-      let res = await fetch('http://backend_web:80/clients', {
+      let res = await fetch('/clients', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           cc: userInput.nacionalId,
           first_name: userInput.name,
@@ -83,8 +86,8 @@ const UserDataFrom = () => {
         }),
       });
       let resJson = await res.json();
-      console.log(resJson.status);
-      if (resJson.status === 200) {
+      console.log(res.status);
+      if (res.status === 200) {
         console.log('User added succedfully');
         setUserInput({
           nacionalId: '',
