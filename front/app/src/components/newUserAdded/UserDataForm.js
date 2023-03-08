@@ -9,6 +9,7 @@ import {
   faEnvelope,
   faPhoneFlip,
   faIdCard,
+  faPaperclip,
 } from '@fortawesome/free-solid-svg-icons';
 
 const UserDataFrom = () => {
@@ -126,6 +127,7 @@ const UserDataFrom = () => {
                   autoComplete="off"
                   type="text"
                   className="contact-input"
+                  onChange={nameChangeHandlre}
                   required
                 />
                 <label htmlFor="">First Name</label>
@@ -138,6 +140,7 @@ const UserDataFrom = () => {
                   autoComplete="off"
                   type="text"
                   className="contact-input"
+                  onChange={seconNameChangeHandlre}
                   required
                 />
                 <label htmlFor="">Second Name</label>
@@ -150,6 +153,7 @@ const UserDataFrom = () => {
                   autoComplete="off"
                   type="text"
                   className="contact-input"
+                  onChange={nationalIdChangeHandlre}
                   required
                 />
                 <label htmlFor="">Cedula</label>
@@ -162,6 +166,7 @@ const UserDataFrom = () => {
                   autoComplete="off"
                   type="email"
                   className="contact-input"
+                  onChange={emailAdressChangeHandlre}
                   required
                 />
                 <label htmlFor="">Email</label>
@@ -174,10 +179,22 @@ const UserDataFrom = () => {
                   autoComplete="off"
                   type="text"
                   className="contact-input"
+                  onChange={mobileNumberChangeHandlre}
                   required
                 />
                 <label htmlFor="">Numero celualar:</label>
                 <FontAwesomeIcon className="icon" icon={faPhoneFlip} />
+              </div>
+
+              {/* button section */}
+              <div className="contact-buttons">
+                <button className="btn upload">
+                  <span>
+                    <FontAwesomeIcon icon={faPaperclip} />
+                  </span>
+                  <input type="file" name="attachement" />
+                </button>
+                <input type="submit" value="Create" className="btn" />
               </div>
             </form>
           </div>

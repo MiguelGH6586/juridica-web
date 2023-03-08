@@ -110,6 +110,9 @@
   transform: translateY(-50%);
   color: variables.$lightTextColor;
   pointer-events: none;
+
+  // trasition efect
+  transition: 0.25s;
 }
 
 .input-wrap .icon {
@@ -120,6 +123,8 @@
   pointer-events: none;
   color: variables.$inputText;
   font-size: 2rem;
+
+  transition: 0.3s;
 }
 
 //#TODO: esta clase se aplicara cuando se ponga por js la clase focus
@@ -132,6 +137,65 @@
 .input-wrap.focus label {
   color: variables.$lightMainColor;
 }
-.input-wrap.focus icon {
+.input-wrap.focus .icon {
   color: variables.$lightMainColor;
+}
+
+.input-wrap.not-empty label {
+  font-size: 1.056rem;
+  top: 1.2rem;
+  transform: translateY(0);
+}
+
+//Buttons stayles
+.contact-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.6rem;
+  margin-top: 1.6rem;
+  width: 100%;
+
+  grid-column: span 2;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.76rem 3.2rem;
+  background-color: variables.$mainColor;
+  color: #fff;
+  border-radius: 6.4rem;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: variables.$mainColorHover;
+}
+
+.btn.upload {
+  position: relative;
+  background-color: variables.$inoutbg;
+}
+
+.btn.upload span {
+  color: variables.$lightTextColor;
+}
+
+.btn.upload input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: red;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.btn.upload:hover {
+  background-color: variables.$inoutbgHover;
 }
