@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
-#env
+#babel
+babel-plugin-macros.config.js
