@@ -1,9 +1,14 @@
-from fastapi import APIRouter, Response, status
-from config.db import conn
-from schemas.client import clientEntity, clientsEntity
-from models.client import Client
+# Standard library imports
 from bson import ObjectId
 from starlette.status import HTTP_204_NO_CONTENT
+
+# Framework FASTAPI imports
+from fastapi import APIRouter, Response, status
+
+# Local application imports
+from ..config.db import conn
+from ..schemas.client import clientEntity, clientsEntity
+from ..models.client import Client
 
 client = APIRouter()
 database = conn.projectweb.clients

@@ -1,7 +1,10 @@
+# Framework FASTAPI imports
 from fastapi import FastAPI
-from routes.client import client
-from docs import tags_metadata
 from fastapi.middleware.cors import CORSMiddleware
+
+# Local application imports
+from .routes.client import client
+from .docs import tags_metadata
 
 app = FastAPI(
     title="API Project Web",

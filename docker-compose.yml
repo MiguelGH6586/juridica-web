@@ -34,7 +34,7 @@ services:
     depends_on:
       - database
     volumes:
-      - ./backend:/usr/src/lab/backend
+      - ./backend:/usr/src/backend
     networks:
       - default
 

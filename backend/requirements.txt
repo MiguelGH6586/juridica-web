@@ -2,3 +2,5 @@ uvicorn
 fastapi
 pymongo
 passlib
+httpx
+pytest
