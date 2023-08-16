@@ -1,9 +1,9 @@
-// import PageNav from '../components/PageNav';
+import PageNav from '../components/PageNav';
 import styles from './HomePage.module.css';
 function HomePage() {
   return (
     <main>
-      {/* <PageNav></PageNav> */}
+      <PageNav></PageNav>
       <section className={styles.sectionHero}>
         <div className={styles.hero}>
           <div className={styles.heroTextBox}>
