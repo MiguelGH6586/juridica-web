@@ -5,7 +5,7 @@ function PageNav() {
     <header className={styles.header}>
       <img
         className={styles.logo}
-        src="/public/juridica-logov2.png"
+        src="/juridica-logov2.png"
         alt="logo juridica"
       />
       <nav className={styles.mainNav}>
