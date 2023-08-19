@@ -5,7 +5,7 @@ RUN npm install -g nodemon
 WORKDIR /usr/src/lab/front/app
 
 # add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/lab/front/app/node_modules/.bin:$PATH
+#ENV PATH /usr/src/lab/front/app/node_modules/.bin:$PATH
 
 COPY package.json .
 COPY package-lock.json .
