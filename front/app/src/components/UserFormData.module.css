@@ -10,7 +10,7 @@
 
 .popup .content {
   width: 75%;
-  height: 50rem;
+  /* height: 50rem; */
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
 
   position: absolute;
@@ -54,4 +54,48 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 3.2rem;
   row-gap: 2.4rem;
+}
+
+.ctaForm label {
+  display: block;
+  font-size: 1.6rem;
+  font-family: 500;
+  margin-bottom: 1.2rem;
+}
+.ctaForm input,
+.ctaForm select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #f0e9fd;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ctaForm input::placeholder {
+  color: #aaaa;
+}
+
+.ctaForm button {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.2rem;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.3s;
+  background-color: #282b66;
+  color: #f0e9fd;
+  align-self: end;
+}
+
+.ctaForm button:hover {
+  background-color: #fff;
+  color: #555;
 }

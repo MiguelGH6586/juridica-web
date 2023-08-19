@@ -1,9 +1,92 @@
 // import { createPortal } from 'react-dom';
-
+import { useState } from 'react';
 import styles from './UserFormData.module.css';
 import '../index.css';
 
 function UserFormData() {
+  const [userInput, setUserInput] = useState({
+    nacionalId: '',
+    name: '',
+    secondName: '',
+    emailAdress: '',
+    mobileNumber: '',
+  });
+
+  let nationalIdChangeHandlre = event => {
+    event.preventDefault();
+    // setEnterAmount(event.target.value);
+    setUserInput({
+      ...userInput,
+      nacionalId: event.target.value,
+    });
+  };
+  let nameChangeHandlre = event => {
+    event.preventDefault();
+    // setEnterAmount(event.target.value);
+    setUserInput({
+      ...userInput,
+      name: event.target.value,
+    });
+  };
+  let seconNameChangeHandlre = event => {
+    event.preventDefault();
+    // setEnterAmount(event.target.value);
+    setUserInput({
+      ...userInput,
+      secondName: event.target.value,
+    });
+  };
+  let emailAdressChangeHandlre = event => {
+    event.preventDefault();
+    // setEnterAmount(event.target.value);
+    setUserInput({
+      ...userInput,
+      emailAdress: event.target.value,
+    });
+  };
+  let mobileNumberChangeHandlre = event => {
+    event.preventDefault();
+    // setEnterAmount(event.target.value);
+    setUserInput({
+      ...userInput,
+      mobileNumber: event.target.value,
+    });
+  };
+  //Submit event controler
+  let handleSubmit = async event => {
+    event.preventDefault();
+    try {
+      let res = await fetch('/clients', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cc: userInput.nacionalId,
+          first_name: userInput.name,
+          last_name: userInput.secondName,
+          cellphone: userInput.mobileNumber,
+          email: userInput.emailAdress,
+        }),
+      });
+      console.log(res.status);
+      if (res.status === 200) {
+        console.log('User added succedfully');
+        setUserInput({
+          nacionalId: '',
+          name: '',
+          secondName: '',
+          emailAdress: '',
+          mobileNumber: '',
+        });
+      } else {
+        console.log('Some error occured');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className={styles.popup}>
       <div className={`${styles.content} ${styles.cta}`}>
@@ -17,10 +100,15 @@ function UserFormData() {
             meal is on us!
           </p>
 
-          <form className={styles.ctaForm} name="sing-up">
+          <form
+            onSubmit={handleSubmit}
+            className={styles.ctaForm}
+            name="sing-up"
+          >
             <div>
               <label htmlFor="full-name">Cedula</label>
               <input
+                onChange={nationalIdChangeHandlre}
                 id="cedula"
                 type="text"
                 placeholder="54393872"
@@ -29,8 +117,9 @@ function UserFormData() {
               />
             </div>
             <div>
-              <label htmlFor="full-name">Name</label>
+              <label htmlFor="full-name">Nombre</label>
               <input
+                onChange={nameChangeHandlre}
                 id="name"
                 type="text"
                 placeholder="Nombre"
@@ -41,6 +130,7 @@ function UserFormData() {
             <div>
               <label htmlFor="full-name">Apellido</label>
               <input
+                onChange={seconNameChangeHandlre}
                 id="apellido"
                 type="text"
                 placeholder="Apellido"
@@ -51,6 +141,7 @@ function UserFormData() {
             <div>
               <label htmlFor="full-name">Numero de telefono</label>
               <input
+                onChange={mobileNumberChangeHandlre}
                 id="cell-number"
                 type="text"
                 placeholder="300 876 6969"
@@ -59,8 +150,9 @@ function UserFormData() {
               />
             </div>
             <div>
-              <label htmlFor="email">Email address</label>
+              <label htmlFor="email">Email</label>
               <input
+                onChange={emailAdressChangeHandlre}
                 id="email"
                 type="email"
                 placeholder="me@example.com"
@@ -79,7 +171,7 @@ function UserFormData() {
                 <option value="twitter">Twitter</option>
               </select>
             </div>
-            <button className="btn">Sing up now</button>
+            <button className="btn">No pierdas tiempo</button>
           </form>
         </div>
         <div
@@ -93,39 +185,3 @@ function UserFormData() {
 }
 
 export default UserFormData;
-
-//Submit event controler
-// let handleSubmit = async event => {
-//   event.preventDefault();
-//   try {
-//     let res = await fetch('/clients', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         cc: userInput.nacionalId,
-//         first_name: userInput.name,
-//         last_name: userInput.secondName,
-//         cellphone: userInput.mobileNumber,
-//         email: userInput.emailAdress,
-//       }),
-//     });
-//     let resJson = await res.json();
-//     console.log(res.status);
-//     if (res.status === 200) {
-//       console.log('User added succedfully');
-//       setUserInput({
-//         nacionalId: '',
-//         name: '',
-//         secondName: '',
-//         emailAdress: '',
-//         mobileNumber: '',
-//       });
-//     } else {
-//       console.log('Some error occured');
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
