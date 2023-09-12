@@ -56,7 +56,7 @@ function UserFormData() {
   let handleSubmit = async event => {
     event.preventDefault();
     try {
-      let res = await fetch('/clients', {
+      let res = await fetch('http://localhost:8080/clients', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
