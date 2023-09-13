@@ -1,4 +1,10 @@
 .popup {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.popupActive {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,9 +12,11 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.548);
   z-index: 9999;
+  opacity: 1;
+  visibility: visible;
 }
 
-.popup .content {
+.popupActive .content {
   width: 75%;
   /* height: 50rem; */
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
@@ -20,11 +28,21 @@
   border-radius: 15px;
 }
 
-.popup .content.cta {
+.popupActive .content.cta {
   display: grid;
   grid-template-columns: 2fr 1fr;
   background-image: linear-gradient(to right bottom, #646cff, #c1c4ff);
   overflow: hidden;
+}
+
+.popupClose {
+  color: tomato;
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  font-size: 3rem;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cta-text-box {

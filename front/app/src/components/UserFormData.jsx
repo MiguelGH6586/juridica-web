@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styles from './UserFormData.module.css';
 import '../index.css';
 
-function UserFormData() {
+function UserFormData({ toggle, setToggle }) {
   const [userInput, setUserInput] = useState({
     nacionalId: '',
     name: '',
@@ -88,7 +88,7 @@ function UserFormData() {
   };
 
   return (
-    <div className={styles.popup}>
+    <div className={`${toggle ? styles.popupActive : styles.popup}`}>
       <div className={`${styles.content} ${styles.cta}`}>
         <div className={styles['cta-text-box']}>
           <h2 className="heading-secondary">
@@ -173,6 +173,12 @@ function UserFormData() {
             </div>
             <button className="btn">No pierdas tiempo</button>
           </form>
+          <a
+            className={styles.popupClose}
+            onClick={() => setToggle(toggle => !toggle)}
+          >
+            X
+          </a>
         </div>
         <div
           className={styles['cta-img-box']}

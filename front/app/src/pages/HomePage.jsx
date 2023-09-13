@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import PageNav from '../components/PageNav';
 import UserFormData from '../components/UserFormData';
 import styles from './HomePage.module.css';
 function HomePage() {
+  const [toggle, setToggle] = useState(false);
+
   return (
     <>
       <main>
@@ -19,7 +22,12 @@ function HomePage() {
                 exercitationem odio? Corporis laudantium et quis praesentium
                 sapiente quasi dicta quam voluptate tempore?{' '}
               </p>
-              <button className={styles.btn}> Apela y ahorra</button>
+              <button
+                className={styles.btn}
+                onClick={() => setToggle(toggle => !toggle)}
+              >
+                Apela y ahorra
+              </button>
               {/* <a href="#">Learn more</a> */}
             </div>
             <div className="heroImgBox">
@@ -32,7 +40,7 @@ function HomePage() {
           </div>
         </section>
       </main>
-      <UserFormData></UserFormData>
+      <UserFormData toggle={toggle} setToggle={setToggle} ></UserFormData>
     </>
   );
 }
