@@ -11,7 +11,7 @@ from ..schemas.client import clientEntity, clientsEntity
 from ..models.client import Client
 
 client = APIRouter()
-database = conn.projectweb.clients
+database = conn.juridica.clients
 
 # Get all clients from table "clients" in db
 @client.get('/clients', response_model = list[Client], tags= ["clients"])
