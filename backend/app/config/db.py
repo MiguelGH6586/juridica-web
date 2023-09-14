@@ -1,23 +1,21 @@
 # Standard library imports
 from pymongo import MongoClient
+from dotenv.main import load_dotenv
+load_dotenv()
+import os 
 
-#from urllib.parse import quote_plus
-#username = quote_plus('miguelg97')
-#password = quote_plus('fhmJdWjsw8Kh7dhi')
-#cluster = 'testproject.vpctwpw.mongodb.net'
-#authSource = '<authSource>'
-#authMechanism = '<authMechanism>'
-#uri = 'mongodb+srv://' + username + ':' + password + '@' + cluster + '/?authSource=' + authSource + '&authMechanism=' + authMechanism
-#client = MongoClient(uri)
-#result = client["<dbName"]["<collName>"].find()
+MONGO_CONNECTION = os.environ["MONGO_CONNECTION"]
+MONGO_USER = os.environ["MONGO_USER"]
+MONGO_PW = os.environ["MONGO_PW"]
+MONGO_CLUSTER = os.environ["MONGO_CLUSTER"]
+MONGO_QUERY = os.environ["MONGO_QUERY"]
 
-#"mongodb+srv://miguelg97:fhmJdWjsw8Kh7dhi@testproject.vpctwpw.mongodb.net/?retryWrites=true&w=majority"
-#"mongodb://root:secret@db_mongo:27017/?authSource=admin&readPreference=primary&ssl=false&directConnection=true"
+URI = f"{MONGO_CONNECTION}://{MONGO_USER}:{MONGO_PW}@{MONGO_CLUSTER}/?{MONGO_QUERY}"
 
 # Set conection with db in mongo db
 # user: root
 # password: secret
 # host: db_mongo
 # port: 27017
-conn = MongoClient('mongodb://root:secret@db_mongo:27017/?authSource=admin&readPreference=primary&ssl=false&directConnection=true')
+conn = MongoClient(URI)
 #conn = MongoClient("mongodb+srv://miguelg97:fhmJdWjsw8Kh7dhi@testproject.vpctwpw.mongodb.net/?retryWrites=true&w=majority")

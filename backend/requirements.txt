@@ -4,3 +4,4 @@ pymongo
 passlib
 httpx
 pytest
+python-dotenv
