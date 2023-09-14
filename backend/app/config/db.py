@@ -4,11 +4,11 @@ from dotenv.main import load_dotenv
 load_dotenv()
 import os 
 
-MONGO_CONNECTION = os.environ["MONGO_CONNECTION"]
-MONGO_USER = os.environ["MONGO_USER"]
-MONGO_PW = os.environ["MONGO_PW"]
-MONGO_CLUSTER = os.environ["MONGO_CLUSTER"]
-MONGO_QUERY = os.environ["MONGO_QUERY"]
+MONGO_CONNECTION = os.environ.get("MONGO_CONNECTION")
+MONGO_USER = os.environ.get("MONGO_USER")
+MONGO_PW = os.environ.get("MONGO_PW")
+MONGO_CLUSTER = os.environ.get("MONGO_CLUSTER")
+MONGO_QUERY = os.environ.get("MONGO_QUERY")
 
 URI = f"{MONGO_CONNECTION}://{MONGO_USER}:{MONGO_PW}@{MONGO_CLUSTER}/?{MONGO_QUERY}"
 
@@ -18,4 +18,10 @@ URI = f"{MONGO_CONNECTION}://{MONGO_USER}:{MONGO_PW}@{MONGO_CLUSTER}/?{MONGO_QUE
 # host: db_mongo
 # port: 27017
 conn = MongoClient(URI)
-#conn = MongoClient("mongodb+srv://miguelg97:fhmJdWjsw8Kh7dhi@testproject.vpctwpw.mongodb.net/?retryWrites=true&w=majority")
+
+# Send a ping to confirm a successful connection
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+except Exception as e:
+    print(e)
